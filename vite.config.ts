@@ -2,9 +2,11 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
+const repoBase = '/weight-tracker-CURSOR/'
+
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/weight-tracker-CURSOR/',
+  base: repoBase,
   plugins: [
     react(),
     VitePWA({
@@ -17,11 +19,11 @@ export default defineConfig({
         theme_color: '#111827',
         background_color: '#111827',
         display: 'standalone',
-        scope: '/weight-tracker-CURSOR/',
-        start_url: '/weight-tracker-CURSOR/',
+        scope: repoBase,
+        start_url: repoBase,
         icons: [
           {
-            src: '/pwa.svg',
+            src: `${repoBase}pwa.svg`,
             sizes: '512x512',
             type: 'image/svg+xml',
             purpose: 'any',
@@ -30,7 +32,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2}'],
-        navigateFallback: '/weight-tracker-CURSOR/index.html',
+        navigateFallback: `${repoBase}index.html`,
       },
     }),
   ],

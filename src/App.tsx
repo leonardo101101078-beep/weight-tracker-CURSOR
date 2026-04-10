@@ -5,6 +5,8 @@ import { History } from './routes/History'
 import { Export } from './routes/Export'
 
 export default function App() {
+  const logoSrc = `${import.meta.env.BASE_URL}pwa.svg`
+
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('theme')
     if (saved === 'dark' || saved === 'light') return saved
@@ -20,7 +22,7 @@ export default function App() {
     <div className="app">
       <header className="topbar">
         <div className="brand">
-          <img src="/pwa.svg" width={28} height={28} alt="" />
+          <img src={logoSrc} width={28} height={28} alt="" />
           <div className="brandText">
             <div className="brandTitle">體重紀錄小幫手</div>
             <div className="brandSub">離線可用・本機保存</div>
